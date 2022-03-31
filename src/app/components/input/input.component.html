@@ -1,6 +1,15 @@
-<div class="flex">
-  <input type="text" id="tag-input" name="tag" list="tag-list" placeholder="Add tags..."
-         class="text-custom-grey-900 p-2 rounded-xl"/>
+<div class="flex justify-center">
+  <!--suppress CheckEmptyScriptTag -->
+  <input
+    type="text"
+    id="tag-input"
+    name="tag"
+    list="tag-list"
+    placeholder="Add tags..."
+    class="text-custom-grey-900 p-2 rounded-xl"
+    [(ngModel)]="inputValue"
+    (keyup)="checkKey($event)"
+  />
 
   <datalist id="tag-list">
     <option *ngFor="let tag of dataList">{{ tag.label }}</option>
