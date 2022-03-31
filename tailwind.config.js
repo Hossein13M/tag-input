@@ -12,7 +12,8 @@ const colors = {
             900: '#CA3B57',
         },
         'custom-grey': {
-            100: '#AEB2BA',
+            100: '#EEEFF0',
+            500: '#AEB2BA',
             900: '#5A6474',
         },
     },
