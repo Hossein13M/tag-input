@@ -4,10 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { TagService } from './services/tag.service';
+import { TagChipComponent } from './components/tag-chip/tag-chip.component';
 import { MirageService } from './services/mirage.service';
 
 @NgModule({
-    declarations: [AppComponent],
+    declarations: [AppComponent, TagChipComponent],
     imports: [BrowserModule, HttpClientModule],
     providers: [TagService, MirageService],
     bootstrap: [AppComponent],

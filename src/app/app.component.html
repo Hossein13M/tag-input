@@ -1,0 +1,5 @@
+<div class="flex justify-center items-center h-screen">
+  <div class="flex" *ngFor="let tag of tags">
+    <app-tag-chip class="mx-2" [tag]="tag" (tagDeleted)="removeTag($event)"></app-tag-chip>
+  </div>
+</div>
