@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { TagService } from './services/tag.service';
 import { TagChipComponent } from './components/tag-chip/tag-chip.component';
 import { MirageService } from './services/mirage.service';
+import { InputComponent } from './components/input/input.component';
 
 @NgModule({
-    declarations: [AppComponent, TagChipComponent],
+    declarations: [AppComponent, TagChipComponent, InputComponent],
     imports: [BrowserModule, HttpClientModule],
     providers: [TagService, MirageService],
     bootstrap: [AppComponent],

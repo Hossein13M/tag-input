@@ -1,0 +1,9 @@
+input {
+    min-width: 300px;
+    transition: box-shadow 300ms ease-out;
+
+    &:focus {
+        outline: none;
+        //box-shadow: 0 0 5px theme('colors.custom-grey.500');
+    }
+}
