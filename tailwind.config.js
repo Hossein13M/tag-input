@@ -15,6 +15,7 @@ const colors = {
         },
         'custom-grey': {
             100: '#EEEFF0',
+            300: '#181A1B',
             400: '#212425',
             500: '#AEB2BA',
             600: '#1C1F20',
