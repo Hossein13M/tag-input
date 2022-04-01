@@ -27,21 +27,18 @@ export class BaseTextInputComponent {
         const validNavigationKeys: Array<string> = ['ArrowDown', 'ArrowUp'];
 
         if (event.key === 'Escape') this.showSuggestionList.emit(false);
-
-        if (validNavigationKeys.includes(event.key)) {
+        else if (validNavigationKeys.includes(event.key)) {
             this.shareService.hasNavigatedWithinTheInput(event.key as 'ArrowDown' | 'ArrowUp');
-        }
-
-        if (validTagCreateKeys.includes(event.key)) {
+        } else if (validTagCreateKeys.includes(event.key)) {
             if (event.key === ',') {
-                this.inputValue = this.inputValue.slice(0, -1);
+                this.onTagValue(this.inputValue.slice(0, -1));
             } else if (event.key === 'Enter') {
                 if (!this.inputValue) {
                     this.shareService.hasPressedEnterKeyOnEmptyInput();
-                } else {
-                    this.onTagValue(this.inputValue);
                 }
             }
+        } else {
+            this.shareService.storeNewValueForInput(this.inputValue);
         }
     }
 

@@ -4,7 +4,7 @@
                          (showSuggestionList)="changeSuggestionListDisplay($event)"></app-base-text-input>
     <app-list
       class="relative"
-      [suggestionList]="suggestionsList"
+      [allSuggestionList]="suggestionsList"
       (suggestionClick)="onSuggestionSelection($event)"
       [shouldListBeShown]="shouldListBeShown"
       (suggestionListSelectionClick)="changeSuggestionListDisplay($event)"

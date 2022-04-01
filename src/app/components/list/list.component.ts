@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 import { TagModel } from '../../models/tag.model';
 import { ShareService } from '../../services/share.service';
 
@@ -7,17 +7,21 @@ import { ShareService } from '../../services/share.service';
     templateUrl: './list.component.html',
     styleUrls: ['./list.component.scss'],
 })
-export class ListComponent {
+export class ListComponent implements OnChanges {
     public linkIndex: number = 0;
     private arrowKeyFunctions = {
-        ArrowDown: () => this.linkIndex < this.suggestionList.length - 1 && this.linkIndex++,
+        ArrowDown: () => this.linkIndex < this.allSuggestionList.length - 1 && this.linkIndex++,
         ArrowUp: () => this.linkIndex > 0 && this.linkIndex--,
     };
+    public newTagText: string = '';
 
     @Input() shouldListBeShown!: boolean;
-    @Input() suggestionList: Array<TagModel> = [];
+    @Input() allSuggestionList: Array<TagModel> = [];
+    @Input() searchedValue: string = '';
     @Output() suggestionClick: EventEmitter<TagModel> = new EventEmitter<TagModel>();
     @Output() suggestionListSelectionClick: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+    public filteredSuggestionsList: Array<TagModel> = [];
 
     constructor(private shareService: ShareService) {
         this.shareService.checkForNavigationWithinTheInput().subscribe((response: 'ArrowDown' | 'ArrowUp') => this.arrowKeyFunctions[response]());
@@ -25,7 +29,14 @@ export class ListComponent {
 
         this.shareService.checkForEnterKeyPressOnEmptyInput().subscribe(() => {
             this.shareService.hasItemBeenSelectedFromSuggestionList();
-            this.onSuggestionSelection(this.suggestionList[this.linkIndex]);
+            this.onSuggestionSelection(this.allSuggestionList[this.linkIndex]);
+        });
+
+        this.shareService.getSearchValueFromInput().subscribe((value: string) => {
+            this.newTagText = value;
+            value === ''
+                ? (this.filteredSuggestionsList = this.allSuggestionList)
+                : (this.filteredSuggestionsList = this.allSuggestionList.filter((item: TagModel) => item.label.toLowerCase().includes(value.toLowerCase())));
         });
     }
 
@@ -33,5 +44,9 @@ export class ListComponent {
         this.suggestionClick.emit(suggestion);
         this.suggestionListSelectionClick.emit(false);
         this.shareService.hasClickedInsideList();
+    }
+
+    ngOnChanges(): void {
+        this.filteredSuggestionsList = this.allSuggestionList;
     }
 }

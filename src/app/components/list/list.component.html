@@ -1,6 +1,15 @@
 <ul *ngIf="shouldListBeShown" id="list">
-  <li *ngFor="let suggestion of suggestionList; let index = index" (click)="onSuggestionSelection(suggestion)"
-      [class.activeSearchLink]="index === linkIndex">
+  <li
+    *ngFor="let suggestion of filteredSuggestionsList; let index = index"
+    (click)="onSuggestionSelection(suggestion)"
+    [class.activeSearchLink]="index === linkIndex"
+  >
     {{ suggestion.label }}
   </li>
+
+  <span *ngIf="!filteredSuggestionsList.length" class="bg-red">
+        Press <kbd class="text-custom-red-900">Enter</kbd> or <kbd class="text-custom-red-900">,</kbd> to add
+        <span class="text-custom-blue-900 font-black border-b-2 border-custom-gray-900">{{ newTagText }}</span>
+        as a new tag
+    </span>
 </ul>
