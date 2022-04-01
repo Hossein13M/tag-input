@@ -1,0 +1,18 @@
+<div class="flex flex-col justify-center wrapper-container">
+  <div class="flex flex-col">
+    <app-base-text-input (inputValueSelection)="onInputValueEvent($event)"
+                         (showSuggestionList)="showList($event)"></app-base-text-input>
+    <app-list
+      class="relative"
+      [suggestionList]="suggestionsList"
+      (suggestionClick)="onSuggestionSelection($event)"
+      [shouldListBeShown]="shouldListBeShown"
+      (suggestionListSelectionClick)="closeSuggestionList($event)"
+    >
+    </app-list>
+  </div>
+  <div class="flex flex-wrap my-5">
+    <app-tag-input class="mx-2 my-2" *ngFor="let tag of tags" [tag]="tag"
+                   (tagDelete)="onTagDelete($event)"></app-tag-input>
+  </div>
+</div>
