@@ -1,6 +1,0 @@
-<ul *ngIf="shouldListBeShown" id="list">
-  <li *ngFor="let suggestion of suggestionList; let index = index" (click)="onSuggestionSelection(suggestion)"
-      [class.activeSearchLink]="index === linkIndex">
-    {{ suggestion.label }}
-  </li>
-</ul>

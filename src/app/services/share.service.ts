@@ -10,6 +10,7 @@ export class ShareService {
     private navigateWithinInput: BehaviorSubject<any> = new BehaviorSubject(null);
     private hasPressedEnterOnEmptyInput: BehaviorSubject<any> = new BehaviorSubject(false);
     private hasItemSelectedFromSuggestionWithKey: BehaviorSubject<any> = new BehaviorSubject(false);
+    private searchValue: BehaviorSubject<any> = new BehaviorSubject(null);
 
     constructor() {}
 
@@ -51,5 +52,13 @@ export class ShareService {
 
     public checkForKeySelectionFromSuggestion(): Observable<boolean> {
         return this.hasItemSelectedFromSuggestionWithKey.asObservable();
+    }
+
+    public storeNewValueForInput(searchValue: string): void {
+        this.searchValue.next(searchValue);
+    }
+
+    public getSearchValueFromInput(): Observable<string> {
+        return this.searchValue.asObservable();
     }
 }
