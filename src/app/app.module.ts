@@ -11,10 +11,14 @@ import { ListComponent } from './components/list/list.component';
 import { TagInputComponent } from './components/tag-input/tag-input.component';
 import { WrapperComponent } from './components/wrapper/wrapper.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
     declarations: [AppComponent, BaseTextInputComponent, ListComponent, TagInputComponent, WrapperComponent],
-    imports: [BrowserModule, HttpClientModule, FormsModule, BrowserAnimationsModule],
+    imports: [BrowserModule, HttpClientModule, FormsModule, BrowserAnimationsModule, MatToolbarModule, MatIconModule, MatButtonModule, MatTooltipModule],
     providers: [TagService, MirageService],
     bootstrap: [AppComponent],
 })

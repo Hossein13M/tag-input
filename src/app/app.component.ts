@@ -12,10 +12,12 @@ import { shuffleArray } from './const/tagsConst';
 export class AppComponent implements OnInit {
     public tags: Array<TagModel> = [];
     public suggestions: Array<TagModel> = [];
+    public isDarkTheme: boolean = false;
 
     constructor(private tagService: TagService, private readonly mirageService: MirageService) {}
 
     ngOnInit(): void {
+        this.isDarkTheme = localStorage.getItem('theme') === 'dark';
         this.mirageService.mirageJsServer();
         this.getTags();
         this.getSuggestions();
@@ -39,5 +41,10 @@ export class AppComponent implements OnInit {
 
     public onInputValueChange(inputValue: string) {
         this.tagService.addTag(inputValue).subscribe(() => this.getTags());
+    }
+
+    public changeTheme(): void {
+        this.isDarkTheme = !this.isDarkTheme;
+        localStorage.setItem('theme', this.isDarkTheme ? 'dark' : 'light');
     }
 }

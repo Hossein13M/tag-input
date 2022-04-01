@@ -1,0 +1,24 @@
+mat-toolbar {
+    height: 70px;
+
+    img,
+    button {
+        height: 50px;
+    }
+
+    mat-icon {
+        font-size: 35px;
+    }
+}
+
+.app-container {
+    height: calc(100vh - 70px);
+}
+
+::ng-deep .mat-tooltip {
+    min-width: 100px;
+    max-width: 150px;
+    background-color: theme('colors.custom-blue.900');
+    text-align: center;
+    font-size: 16px;
+}
