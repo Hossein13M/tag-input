@@ -12,9 +12,7 @@ export class BaseTextInputComponent {
     @Output() showSuggestionList: EventEmitter<boolean> = new EventEmitter<boolean>();
     @Output() navigateInList: EventEmitter<number> = new EventEmitter<number>();
 
-    constructor(private shareService: ShareService) {
-        this.shareService.checkForKeySelectionFromSuggestion().subscribe(() => document!.getElementById('base-text-input-components')!.blur());
-    }
+    constructor(private shareService: ShareService) {}
 
     public onTagValue(inputValue: string): void {
         this.showSuggestionList.emit(false);
@@ -35,6 +33,8 @@ export class BaseTextInputComponent {
             } else if (event.key === 'Enter') {
                 if (!this.inputValue) {
                     this.shareService.hasPressedEnterKeyOnEmptyInput();
+                } else {
+                    this.onTagValue(this.inputValue);
                 }
             }
         } else {
