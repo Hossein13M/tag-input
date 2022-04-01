@@ -1,0 +1,11 @@
+<!--suppress CheckEmptyScriptTag -->
+<input
+  id="base-text-input-component"
+  type="text"
+  placeholder="Add tags..."
+  class="text-custom-grey-900 px-2 py-3 rounded-xl"
+  [(ngModel)]="inputValue"
+  (keyup)="checkKey($event)"
+  (focusin)="onFocus()"
+  (focusout)="onBlur()"
+/>

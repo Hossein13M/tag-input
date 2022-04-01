@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { createServer } from 'miragejs';
-import { TagsVariable, updateTags } from '../const/tagsConst';
+import { Suggestions, TagsVariable, updateTags } from '../const/tagsConst';
 import { TagModel } from '../models/tag.model';
 
 @Injectable()
@@ -14,6 +14,10 @@ export class MirageService {
 
                 this.get('/tags', () => {
                     return TagsVariable;
+                });
+
+                this.get('/suggestions', () => {
+                    return Suggestions;
                 });
 
                 this.delete('/tags/:id', (schema, request) => {
