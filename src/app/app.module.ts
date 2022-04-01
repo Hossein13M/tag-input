@@ -15,10 +15,23 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     declarations: [AppComponent, BaseTextInputComponent, ListComponent, TagInputComponent, WrapperComponent],
-    imports: [BrowserModule, HttpClientModule, FormsModule, BrowserAnimationsModule, MatToolbarModule, MatIconModule, MatButtonModule, MatTooltipModule],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatButtonModule,
+        MatTooltipModule,
+        AppRoutingModule,
+        RouterModule,
+    ],
     providers: [TagService, MirageService],
     bootstrap: [AppComponent],
 })
