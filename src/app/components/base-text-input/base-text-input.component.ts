@@ -13,7 +13,7 @@ export class BaseTextInputComponent {
     @Output() navigateInList: EventEmitter<number> = new EventEmitter<number>();
 
     constructor(private shareService: ShareService) {
-        this.shareService.checkForKeySelectionFromSuggestion().subscribe(() => document!.getElementById('base-text-input-component')!.blur());
+        this.shareService.checkForKeySelectionFromSuggestion().subscribe(() => document!.getElementById('base-text-input-components')!.blur());
     }
 
     public onTagValue(inputValue: string): void {
