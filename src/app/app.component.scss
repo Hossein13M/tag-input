@@ -7,7 +7,7 @@ mat-toolbar {
     }
 
     mat-icon {
-        font-size: 35px;
+        font-size: 50px;
     }
 }
 
@@ -18,7 +18,10 @@ mat-toolbar {
 ::ng-deep .mat-tooltip {
     min-width: 100px;
     max-width: 150px;
-    background-color: theme('colors.custom-blue.900');
     text-align: center;
     font-size: 16px;
+}
+
+.light-theme-image {
+    filter: brightness(0) invert(1);
 }

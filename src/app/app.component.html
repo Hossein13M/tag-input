@@ -1,13 +1,34 @@
 <div class="h-screen" [ngClass]="isDarkTheme ? 'dark' : 'light'">
-  <mat-toolbar class="flex justify-between items-center bg-custom-blue-900 text-white">
-    <h1>Tag Editor</h1>
+  <mat-toolbar class="flex justify-between items-center bg-custom-red-900 dark:bg-custom-blue-900 text-white">
+    <a
+      href="https://hmousavi.dev"
+      target="_blank"
+      matTooltip="Click to visit my portfolio"
+      [matTooltipClass]="isDarkTheme ? 'bg-custom-blue-900' : 'bg-custom-red-900'"
+    >
+      <h1 class="text-white dark:text-custom-grey-900 font-bold text-3xl">Tag Input</h1>
+    </a>
 
     <div class="flex items-center">
-      <button (click)="changeTheme()" mat-icon-button matTooltip="Toggle Theme">
-        <mat-icon class="flex justify-center items-center"> {{ isDarkTheme ? 'dark_mode' : 'light_mode' }} </mat-icon>
+      <button
+        (click)="changeTheme()"
+        mat-icon-button
+        matTooltip="Toggle Theme"
+        [matTooltipClass]="isDarkTheme ? 'bg-custom-blue-900' : 'bg-custom-red-900'"
+      >
+        <mat-icon class="flex justify-center items-center text-white dark:text-custom-grey-900">
+          {{ isDarkTheme ? 'dark_mode' : 'light_mode' }}
+        </mat-icon>
       </button>
 
-      <a href="https://github.com/hossein13m/tag-input" target="_blank" matTooltip="GitHub repository">
+      <a
+        href="https://github.com/hossein13m/tag-input"
+        target="_blank"
+        matTooltip="GitHub repository"
+        [matTooltipClass]="isDarkTheme ? 'bg-custom-blue-900' : 'bg-custom-red-900'"
+        class="ml-6"
+        [class.light-theme-image]="!isDarkTheme"
+      >
         <img src="../assets/github.png" alt="GitHub"/>
       </a>
     </div>
