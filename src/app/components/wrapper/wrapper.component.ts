@@ -31,11 +31,7 @@ export class WrapperComponent {
         this.inputValue.emit(inputValue);
     }
 
-    public showList(event: boolean) {
-        this.shouldListBeShown = event;
-    }
-
-    public closeSuggestionList(event: boolean) {
-        this.shouldListBeShown = event;
+    public changeSuggestionListDisplay(isShownEvent: boolean) {
+        this.shouldListBeShown = isShownEvent;
     }
 }
