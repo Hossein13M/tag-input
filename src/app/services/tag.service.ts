@@ -14,4 +14,9 @@ export class TagService {
     public removeTag(tag: TagModel): Observable<void> {
         return this.http.delete<void>(`/api/tags/${tag.id}`);
     }
+
+    public addTag(tagLabel: string): Observable<void> {
+        const tagId: string = tagLabel.toLowerCase().replace(' ', '-');
+        return this.http.post<void>('/api/tags', { id: tagId, label: tagLabel });
+    }
 }

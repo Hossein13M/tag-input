@@ -21,6 +21,12 @@ export class MirageService {
                     updateTags(TagsVariable.filter((t: TagModel) => t.id !== tagId));
                     return request;
                 });
+
+                this.post('/tags', (schema, request) => {
+                    const requestBody: TagModel = JSON.parse(request.requestBody);
+                    updateTags([...TagsVariable, requestBody]);
+                    return requestBody;
+                });
             },
         });
     }

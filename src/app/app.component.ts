@@ -25,4 +25,8 @@ export class AppComponent implements OnInit {
     public removeTag(event: TagModel): void {
         this.tagService.removeTag(event).subscribe(() => this.getTags());
     }
+
+    public addTag(tagLabel: string) {
+        this.tagService.addTag(tagLabel).subscribe(() => this.getTags());
+    }
 }
