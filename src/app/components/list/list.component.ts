@@ -24,7 +24,10 @@ export class ListComponent implements OnChanges {
     public filteredSuggestionsList: Array<TagModel> = [];
 
     constructor(private shareService: ShareService) {
-        this.shareService.checkForNavigationWithinTheInput().subscribe((response: 'ArrowDown' | 'ArrowUp') => this.arrowKeyFunctions[response]());
+        this.shareService.checkForNavigationWithinTheInput().subscribe((response: 'ArrowDown' | 'ArrowUp') => {
+            response === 'ArrowDown' ? this.arrowKeyFunctions.ArrowDown() : this.arrowKeyFunctions.ArrowUp();
+        });
+
         this.shareService.checkForClickStatusForInput().subscribe(() => (this.linkIndex = 0));
 
         this.shareService.checkForEnterKeyPressOnEmptyInput().subscribe(() => {
