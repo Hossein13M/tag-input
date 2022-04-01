@@ -11,6 +11,10 @@ export class TagService {
         return this.http.get<Array<TagModel>>('/api/tags');
     }
 
+    public getSuggestions(): Observable<Array<TagModel>> {
+        return this.http.get<Array<TagModel>>('/api/suggestions');
+    }
+
     public removeTag(tag: TagModel): Observable<void> {
         return this.http.delete<void>(`/api/tags/${tag.id}`);
     }
