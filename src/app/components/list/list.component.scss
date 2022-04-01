@@ -13,13 +13,13 @@ ul {
     li {
         padding: 5px;
         cursor: pointer;
-
-        &:hover {
-            background: #f8f8f8;
-        }
     }
 }
 
-.activeSearchLink {
+.activeSearchLinkLightTheme {
     background: #f8f8f8;
+}
+
+.activeSearchLinkDarkTheme {
+    background: #212425;
 }

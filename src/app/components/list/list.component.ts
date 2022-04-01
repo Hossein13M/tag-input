@@ -8,6 +8,7 @@ import { ShareService } from '../../services/share.service';
     styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnChanges {
+    public isDarkTheme!: boolean;
     public linkIndex: number = 0;
     private arrowKeyFunctions = {
         ArrowDown: () => this.linkIndex < this.allSuggestionList.length - 1 && this.linkIndex++,
@@ -50,6 +51,15 @@ export class ListComponent implements OnChanges {
     }
 
     ngOnChanges(): void {
+        this.isDarkTheme = localStorage.getItem('theme') === 'dark';
         this.filteredSuggestionsList = this.allSuggestionList;
+    }
+
+    public returnProperClassToActiveLi(index: number): 'activeSearchLinkLightTheme' | 'activeSearchLinkDarkTheme' | void {
+        if (this.linkIndex !== index) {
+            return;
+        } else {
+            return this.isDarkTheme ? 'activeSearchLinkDarkTheme' : 'activeSearchLinkLightTheme';
+        }
     }
 }
