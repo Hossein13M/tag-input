@@ -18,6 +18,9 @@ export class BaseTextInputComponent {
         this.showSuggestionList.emit(false);
         this.inputValueSelection.emit(inputValue);
         this.inputValue = '';
+
+        const input = document.getElementById('base-text-input-component');
+        input!.blur();
     }
 
     public checkKey(event: KeyboardEvent): void {
