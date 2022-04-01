@@ -10,10 +10,11 @@ import { BaseTextInputComponent } from './components/base-text-input/base-text-i
 import { ListComponent } from './components/list/list.component';
 import { TagInputComponent } from './components/tag-input/tag-input.component';
 import { WrapperComponent } from './components/wrapper/wrapper.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [AppComponent, BaseTextInputComponent, ListComponent, TagInputComponent, WrapperComponent],
-    imports: [BrowserModule, HttpClientModule, FormsModule],
+    imports: [BrowserModule, HttpClientModule, FormsModule, BrowserAnimationsModule],
     providers: [TagService, MirageService],
     bootstrap: [AppComponent],
 })
