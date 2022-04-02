@@ -4,7 +4,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.1.
 
 ## Working Demo:
-You can find out the working demo [here](http://tag-input.surge.sh/)
+You can find out the working demo [here](https://tag-input.hmousavi.dev/)
 
 
 Light Theme             |  Dark Theme
