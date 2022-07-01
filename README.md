@@ -48,7 +48,8 @@ The tag-input project is responsive since tailwind is a `mobile-first` library.
 
 ## Development server
 
-If you want to deploy it yourself, after cloning the repo and installing the dependencies (using `npm i`) please run `npm run start` (equivalent to `ng serve`) for a dev server. Navigate to `http://localhost:4200/`. 
+If you want to deploy it yourself, after cloning the repo and installing the dependencies (using `yarn install`) please
+run `yarn run start` (equivalent to `ng serve`) for a dev server. Navigate to `http://localhost:4200/`.
 
 ## Further help
 
