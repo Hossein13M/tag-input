@@ -4,7 +4,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.1.
 
 ## Working Demo:
-You can find out the working demo [here](https://tag-input.hmousavi.dev/)
+You can find out the working demo [here](https://tag-input.hossein.dev/)
 
 
 Light Theme             |  Dark Theme
@@ -53,4 +53,4 @@ run `yarn run start` (equivalent to `ng serve`) for a dev server. Navigate to `h
 
 ## Further help
 
-If you need any more details, please feel free to contact me. Check out [my portfolio](https://hmousavi.dev/) to get in touch with me.
+If you need any more details, please feel free to contact me. Check out [my portfolio](https://hossein.dev/) to get in touch with me.
